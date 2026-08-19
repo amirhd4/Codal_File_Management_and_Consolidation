@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Fund, FundCreate, FundUpdate } from '../types';
 
-const API_BASE = '/api/v1';
+const API_BASE = 'http://127.0.0.1:8000/api/v1';
 
 export const FundAPI = {
   getFunds: () => axios.get<Fund[]>(`${API_BASE}/funds/`),
