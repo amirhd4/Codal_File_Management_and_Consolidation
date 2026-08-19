@@ -24,9 +24,10 @@ export default function FundManager() {
     setLoading(true);
     try {
       const res = await FundAPI.getFunds();
-      setFunds(res.data);
+      setFunds(Array.isArray(res.data) ? res.data : []);
       setError('');
     } catch (err) {
+      setFunds([]);
       setError('خطا در دریافت لیست صندوق‌ها');
     } finally {
       setLoading(false);
