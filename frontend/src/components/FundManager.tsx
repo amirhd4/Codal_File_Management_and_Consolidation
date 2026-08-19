@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FundAPI } from '../services/api';
-import { Fund } from '../types';
+import type { Fund } from '../types';
 import { Plus, Trash2, Edit3, Download, Upload, Link as LinkIcon, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function FundManager() {

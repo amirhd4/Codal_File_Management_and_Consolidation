@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Fund, FundCreate, FundUpdate } from '../types';
+import type { Fund, FundCreate, FundUpdate } from '../types';
 
 const API_BASE = '/api/v1';
 

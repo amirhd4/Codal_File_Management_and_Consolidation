@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FundManager from './components/FundManager';
 import WorkflowPipeline from './components/WorkflowPipeline.tsx';
 import { Database, FileSpreadsheet, Activity } from 'lucide-react';

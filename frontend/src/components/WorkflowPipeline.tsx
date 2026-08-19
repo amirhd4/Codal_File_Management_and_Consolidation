@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { WorkflowAPI } from '../services/api';
-import { StepResult } from '../types';
+import type { StepResult } from '../types';
 import { Download, ShieldCheck, Layers, FileSpreadsheet, Play, Loader2, UploadCloud } from 'lucide-react';
 
 interface StepState {
