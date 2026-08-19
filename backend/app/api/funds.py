@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Query, 
 from sqlalchemy.orm import Session
 from typing import List
 from app.core.database import get_db
-from app.domain.schemas import FundCreate, FundUpdate, FundResponse
+from app.core.schemas import FundCreate, FundUpdate, FundResponse
 from app.services.fund_service import FundService
 
 router = APIRouter(prefix="/funds", tags=["funds"])

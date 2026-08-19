@@ -72,6 +72,9 @@ class ExcelConsolidationEngine:
 
             total_processed += 1
 
+            # Unmerge cells in target worksheet in-memory to ensure all merged cells have their top-left values
+            self._unmerge_and_fill_worksheet(target_ws)
+
             # Step 3: Raw Concat
             for row in target_ws.iter_rows(values_only=True):
                 if any(cell is not None for cell in row):
@@ -103,6 +106,15 @@ class ExcelConsolidationEngine:
         output_path = os.path.join(self.output_dir, output_filename)
         out_wb.save(output_path)
         return {"status": "success", "total_processed_files": total_processed, "clean_total_rows": clean_row_cursor - 1, "output_file_path": output_path}
+
+    def _unmerge_and_fill_worksheet(self, ws: openpyxl.worksheet.worksheet.Worksheet) -> None:
+        merged_ranges = list(ws.merged_cells.ranges)
+        for m_range in merged_ranges:
+            top_left_value = ws.cell(row=m_range.min_row, column=m_range.min_col).value
+            ws.unmerge_cells(range_string=m_range.coord)
+            for r in range(m_range.min_row, m_range.max_row + 1):
+                for c in range(m_range.min_col, m_range.max_col + 1):
+                    ws.cell(row=r, column=c, value=top_left_value)
 
     def _detect_table_bounds(self, grid: List[List[Any]]) -> Tuple[Optional[int], int]:
         if not grid:

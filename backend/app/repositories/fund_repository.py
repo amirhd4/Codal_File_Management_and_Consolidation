@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.domain.models import Fund
-from app.domain.schemas import FundCreate, FundUpdate
+from app.core.models import Fund
+from app.core.schemas import FundCreate, FundUpdate
 from typing import List, Optional
 
 class FundRepository:

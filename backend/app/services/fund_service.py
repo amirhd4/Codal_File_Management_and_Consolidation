@@ -3,7 +3,7 @@ import io
 from typing import List, BinaryIO
 from sqlalchemy.orm import Session
 from app.repositories.fund_repository import FundRepository
-from app.domain.schemas import FundCreate, FundResponse
+from app.core.schemas import FundCreate, FundResponse
 
 
 class FundService:

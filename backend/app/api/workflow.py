@@ -8,7 +8,7 @@ from app.core.config import settings
 from app.services.downloader_service import CodalDownloaderService
 from app.services.unprotect_service import ExcelUnprotectService
 from app.services.consolidation_service import ExcelConsolidationEngine
-from app.domain.schemas import ConsolidationConfig
+from app.core.schemas import ConsolidationConfig
 
 router = APIRouter(prefix="/workflow", tags=["workflow"])
 
